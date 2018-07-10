@@ -10,4 +10,8 @@
 
 @implementation MSSecurityPolicy
 
++ (MSSecurityPolicy *)defaultPolicy {
+    return [MSSecurityPolicy new];
+}
+
 @end

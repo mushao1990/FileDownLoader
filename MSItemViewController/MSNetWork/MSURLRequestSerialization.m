@@ -10,4 +10,8 @@
 
 @implementation MSURLRequestSerialization
 
++ (MSURLRequestSerialization *)defaultRequestSerialization {
+    return [MSURLRequestSerialization new];
+}
+
 @end

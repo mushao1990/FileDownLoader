@@ -13,4 +13,6 @@
  */
 @interface MSURLResponseSerialization : NSObject
 
++ (MSURLResponseSerialization *)defaultResponseSerialization;
+
 @end

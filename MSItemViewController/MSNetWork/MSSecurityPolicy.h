@@ -13,4 +13,6 @@
  */
 @interface MSSecurityPolicy : NSObject
 
++ (MSSecurityPolicy *)defaultPolicy;
+
 @end

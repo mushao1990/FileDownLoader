@@ -10,4 +10,8 @@
 
 @implementation MSURLResponseSerialization
 
++ (MSURLResponseSerialization *)defaultResponseSerialization {
+    return [MSURLResponseSerialization new];
+}
+
 @end

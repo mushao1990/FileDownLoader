@@ -13,4 +13,6 @@
  */
 @interface MSURLRequestSerialization : NSObject
 
++ (MSURLRequestSerialization *)defaultRequestSerialization;
+
 @end

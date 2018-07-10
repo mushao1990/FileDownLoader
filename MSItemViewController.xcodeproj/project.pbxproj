@@ -25,6 +25,7 @@
 		18CCFE621F20802600AC3443 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CCFE611F20802600AC3443 /* Assets.xcassets */; };
 		18CCFE651F20802600AC3443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CCFE631F20802600AC3443 /* LaunchScreen.storyboard */; };
 		91D770548EC84DAF2D2B72B8 /* libPods-MSItemViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD81EE6FF8F5951A92B377C /* libPods-MSItemViewController.a */; };
+		F53C20E620F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,9 @@
 		18CCFE661F20802600AC3443 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FCBA973959BDD2CFB19E76 /* Pods-MSItemViewController.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSItemViewController.release.xcconfig"; path = "Pods/Target Support Files/Pods-MSItemViewController/Pods-MSItemViewController.release.xcconfig"; sourceTree = "<group>"; };
 		CFD81EE6FF8F5951A92B377C /* libPods-MSItemViewController.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MSItemViewController.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F53C20E420F4DCD4002BED1F /* MSURLSessionManagerTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLSessionManagerTaskModel.h; sourceTree = "<group>"; };
+		F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTaskModel.m; sourceTree = "<group>"; };
+		F53C20E720F4E14A002BED1F /* MSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSNetWork.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +84,11 @@
 		1807C05E20F42DD500F51AAF /* MSNetWork */ = {
 			isa = PBXGroup;
 			children = (
+				F53C20E720F4E14A002BED1F /* MSNetWork.h */,
 				1807C05F20F42E4300F51AAF /* MSURLSessionManager.h */,
 				1807C06020F42E4300F51AAF /* MSURLSessionManager.m */,
+				F53C20E420F4DCD4002BED1F /* MSURLSessionManagerTaskModel.h */,
+				F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */,
 				1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */,
 				1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */,
 				1807C06820F4310100F51AAF /* MSURLResponseSerialization.h */,
@@ -281,6 +288,7 @@
 				18B3EA5D1FEA4FFB00AAA921 /* MSFDownloadManager.m in Sources */,
 				18B994DE1FE7B19500C79A80 /* DownloadCell.m in Sources */,
 				18CCFE5A1F20802600AC3443 /* AppDelegate.m in Sources */,
+				F53C20E620F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m in Sources */,
 				18B994DA1FE7B0F400C79A80 /* MSTestViewController.m in Sources */,
 				1807C06A20F4310100F51AAF /* MSURLResponseSerialization.m in Sources */,
 				1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */,
