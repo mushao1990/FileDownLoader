@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06020F42E4300F51AAF /* MSURLSessionManager.m */; };
+		1807C06420F4300400F51AAF /* MSSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06320F4300400F51AAF /* MSSecurityPolicy.m */; };
+		1807C06720F430E400F51AAF /* MSURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */; };
+		1807C06A20F4310100F51AAF /* MSURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06920F4310100F51AAF /* MSURLResponseSerialization.m */; };
 		181745571FE901E5002E3BD3 /* MSFTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181745561FE901E5002E3BD3 /* MSFTimerManager.m */; };
 		1851EF561FEB618300D93E63 /* MSFDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851EF551FEB618300D93E63 /* MSFDownloadModel.m */; };
 		18B3EA5D1FEA4FFB00AAA921 /* MSFDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3EA5C1FEA4FFB00AAA921 /* MSFDownloadManager.m */; };
@@ -24,6 +28,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1807C05F20F42E4300F51AAF /* MSURLSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLSessionManager.h; sourceTree = "<group>"; };
+		1807C06020F42E4300F51AAF /* MSURLSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManager.m; sourceTree = "<group>"; };
+		1807C06220F4300400F51AAF /* MSSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSecurityPolicy.h; sourceTree = "<group>"; };
+		1807C06320F4300400F51AAF /* MSSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSSecurityPolicy.m; sourceTree = "<group>"; };
+		1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLRequestSerialization.h; sourceTree = "<group>"; };
+		1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLRequestSerialization.m; sourceTree = "<group>"; };
+		1807C06820F4310100F51AAF /* MSURLResponseSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLResponseSerialization.h; sourceTree = "<group>"; };
+		1807C06920F4310100F51AAF /* MSURLResponseSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLResponseSerialization.m; sourceTree = "<group>"; };
 		181745551FE901E5002E3BD3 /* MSFTimerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSFTimerManager.h; sourceTree = "<group>"; };
 		181745561FE901E5002E3BD3 /* MSFTimerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSFTimerManager.m; sourceTree = "<group>"; };
 		1836B4543BF5E9B6F2067FCB /* Pods-MSItemViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSItemViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSItemViewController/Pods-MSItemViewController.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +77,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1807C05E20F42DD500F51AAF /* MSNetWork */ = {
+			isa = PBXGroup;
+			children = (
+				1807C05F20F42E4300F51AAF /* MSURLSessionManager.h */,
+				1807C06020F42E4300F51AAF /* MSURLSessionManager.m */,
+				1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */,
+				1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */,
+				1807C06820F4310100F51AAF /* MSURLResponseSerialization.h */,
+				1807C06920F4310100F51AAF /* MSURLResponseSerialization.m */,
+				1807C06220F4300400F51AAF /* MSSecurityPolicy.h */,
+				1807C06320F4300400F51AAF /* MSSecurityPolicy.m */,
+			);
+			path = MSNetWork;
+			sourceTree = "<group>";
+		};
 		18B3EA5A1FEA4FCF00AAA921 /* MSFDownloadManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +146,7 @@
 				18CCFE591F20802600AC3443 /* AppDelegate.m */,
 				18CCFE5B1F20802600AC3443 /* ViewController.h */,
 				18CCFE5C1F20802600AC3443 /* ViewController.m */,
+				1807C05E20F42DD500F51AAF /* MSNetWork */,
 				18B994DB1FE7B17200C79A80 /* TestVC */,
 				18CCFE5E1F20802600AC3443 /* Main.storyboard */,
 				18CCFE611F20802600AC3443 /* Assets.xcassets */,
@@ -165,8 +193,6 @@
 				18CCFE4E1F20802600AC3443 /* Sources */,
 				18CCFE4F1F20802600AC3443 /* Frameworks */,
 				18CCFE501F20802600AC3443 /* Resources */,
-				6C579A8A094F1BEF9B006605 /* [CP] Embed Pods Frameworks */,
-				A5CA30830A316310AEBC78DE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -224,49 +250,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		6C579A8A094F1BEF9B006605 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSItemViewController/Pods-MSItemViewController-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A5CA30830A316310AEBC78DE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MSItemViewController/Pods-MSItemViewController-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		AB6BE72115350D715CCC146E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MSItemViewController-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -277,13 +276,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1851EF561FEB618300D93E63 /* MSFDownloadModel.m in Sources */,
+				1807C06720F430E400F51AAF /* MSURLRequestSerialization.m in Sources */,
 				18CCFE5D1F20802600AC3443 /* ViewController.m in Sources */,
 				18B3EA5D1FEA4FFB00AAA921 /* MSFDownloadManager.m in Sources */,
 				18B994DE1FE7B19500C79A80 /* DownloadCell.m in Sources */,
 				18CCFE5A1F20802600AC3443 /* AppDelegate.m in Sources */,
 				18B994DA1FE7B0F400C79A80 /* MSTestViewController.m in Sources */,
+				1807C06A20F4310100F51AAF /* MSURLResponseSerialization.m in Sources */,
+				1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */,
 				18B3EA631FEA602E00AAA921 /* MSFDownloadOperation.m in Sources */,
 				181745571FE901E5002E3BD3 /* MSFTimerManager.m in Sources */,
+				1807C06420F4300400F51AAF /* MSSecurityPolicy.m in Sources */,
 				18B3EA601FEA5D3B00AAA921 /* NSString+MSFStringConvience.m in Sources */,
 				18CCFE571F20802600AC3443 /* main.m in Sources */,
 			);
