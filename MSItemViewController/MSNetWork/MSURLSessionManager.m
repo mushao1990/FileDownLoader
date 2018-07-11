@@ -9,6 +9,33 @@
 #import "MSURLSessionManager.h"
 #import "MSURLSessionManagerTaskModel.h"
 
+#ifndef NSFoundationVersionNumber_iOS_8_0
+#define NSFoundationVersionNumber_With_Fixed_5871104061079552_bug 1140.11
+#else
+#define NSFoundationVersionNumber_With_Fixed_5871104061079552_bug NSFoundationVersionNumber_iOS_8_0
+#endif
+
+static dispatch_queue_t url_session_manager_creation_queue() {
+    static dispatch_queue_t af_url_session_manager_creation_queue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        af_url_session_manager_creation_queue = dispatch_queue_create("com.alamofire.networking.session.manager.creation", DISPATCH_QUEUE_SERIAL);
+    });
+    
+    return af_url_session_manager_creation_queue;
+}
+
+static void url_session_manager_create_task_safely(dispatch_block_t block) {
+    if (NSFoundationVersionNumber < NSFoundationVersionNumber_With_Fixed_5871104061079552_bug) {
+        // Fix of bug
+        // Open Radar:http://openradar.appspot.com/radar?id=5871104061079552 (status: Fixed in iOS8)
+        // Issue about:https://github.com/AFNetworking/AFNetworking/issues/2093
+        dispatch_sync(url_session_manager_creation_queue(), block);
+    } else {
+        block();
+    }
+}
+
 @interface MSURLSessionManager()<NSURLSessionDelegate,NSURLSessionDataDelegate>
 
 @property (nonatomic, strong) NSURLSession    * session;// 会话
@@ -40,7 +67,14 @@
                                uploadProgress:(MSURLSessionProgressBlock)uploadProgressBlock
                              downloadProgress:(MSURLSessionProgressBlock)downloadProgressBlock
                             completionHandler:(MSURLSessionTaskCompletionBlock)completionHandler {
-    return nil;
+    __block NSURLSessionDataTask *dataTask = nil;
+    url_session_manager_create_task_safely(^{
+        dataTask = [self.session dataTaskWithRequest:request];
+    });
+    
+    [self addTaskModelForDataTask:dataTask uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock completionHandler:completionHandler];
+    
+    return dataTask;
 }
 
 #pragma mark - NSURLSessionDelegate
@@ -107,7 +141,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
 didCompleteWithError:(NSError *)error {// 告诉任务模型
     MSURLSessionManagerTaskModel *taskModel = [self taskModelForTask:task];
     if (taskModel) {
-        
+        [taskModel URLSession:session task:task didCompleteWithError:error];
     }
 }
 
@@ -136,7 +170,7 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
     // 告诉任务模型，收到数据了
     MSURLSessionManagerTaskModel *taskModel = [self taskModelForTask:dataTask];
     if (taskModel) {
-        
+        [taskModel URLSession:session dataTask:dataTask didReceiveData:data];
     }
 }
 
@@ -159,8 +193,8 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
              completionHandler:(MSURLSessionTaskCompletionBlock)completionHandler {
     MSURLSessionManagerTaskModel    * taskModel = [[MSURLSessionManagerTaskModel alloc] init];
     taskModel.manager = self;
-    taskModel.uploadProgress = uploadProgressBlock;
-    taskModel.downloadProgress = downloadProgressBlock;
+    taskModel.uploadProgressBlock = uploadProgressBlock;
+    taskModel.downloadProgressBlock = downloadProgressBlock;
     taskModel.completionBlock = completionHandler;
     [self setTaskModel:taskModel forTask:dataTask];
 }
