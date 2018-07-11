@@ -16,14 +16,28 @@
 
 @property (nonatomic, weak) MSURLSessionManager    * manager;//
 
-@property (nonatomic, copy) MSURLSessionProgressBlock    uploadProgress;//
+@property (nonatomic, copy) MSURLSessionProgressBlock    uploadProgressBlock;//
 
-@property (nonatomic, copy) MSURLSessionProgressBlock    downloadProgress;//
+@property (nonatomic, copy) MSURLSessionProgressBlock    downloadProgressBlock;//
 
 @property (nonatomic, copy) MSURLSessionTaskCompletionBlock    completionBlock;//
+
+@property (nonatomic, strong) NSProgress    * uploadProgress;
+
+@property (nonatomic, strong) NSProgress    * downloadProgress;
+
+@property (nonatomic, strong) NSMutableData    * mutableData;//
 
 - (void)addProgressForTask:(NSURLSessionTask *)task;
 
 - (void)removeProgressForTask:(NSURLSessionTask *)task;
+
+- (void)URLSession:(__unused NSURLSession *)session
+              task:(NSURLSessionTask *)task
+didCompleteWithError:(NSError *)error;
+
+- (void)URLSession:(__unused NSURLSession *)session
+          dataTask:(__unused NSURLSessionDataTask *)dataTask
+    didReceiveData:(NSData *)data;
 
 @end
