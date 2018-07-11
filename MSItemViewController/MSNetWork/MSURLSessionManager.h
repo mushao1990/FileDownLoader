@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MSSecurityPolicy.h"
-#import "MSURLRequestSerialization.h"
-#import "MSURLResponseSerialization.h"
 #import "MSNetWork.h"
+#import "MSURLResponseSerialization.h"
+#import "MSHTTPResponseSerializer.h"
 
 /**
  用来管理NSURLSession
@@ -18,9 +18,7 @@
  */
 @interface MSURLSessionManager : NSObject
 
-@property (nonatomic, strong) MSURLRequestSerialization    * requestSerialization;// 请求解析器
-
-@property (nonatomic, strong) MSURLResponseSerialization    * responseSerialization;// 响应解析器
+@property (nonatomic, strong) id <MSURLResponseSerialization>    responseSerialization;// 响应解析器
 
 @property (nonatomic, strong) MSSecurityPolicy    * securityPolicy;// 安全策略
 

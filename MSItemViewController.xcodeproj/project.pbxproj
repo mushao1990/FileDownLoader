@@ -10,9 +10,9 @@
 		1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06020F42E4300F51AAF /* MSURLSessionManager.m */; };
 		1807C06420F4300400F51AAF /* MSSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06320F4300400F51AAF /* MSSecurityPolicy.m */; };
 		1807C06720F430E400F51AAF /* MSURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */; };
-		1807C06A20F4310100F51AAF /* MSURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06920F4310100F51AAF /* MSURLResponseSerialization.m */; };
 		181745571FE901E5002E3BD3 /* MSFTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181745561FE901E5002E3BD3 /* MSFTimerManager.m */; };
 		1851EF561FEB618300D93E63 /* MSFDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851EF551FEB618300D93E63 /* MSFDownloadModel.m */; };
+		187B495B20F650B8000217F7 /* MSHTTPResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B495A20F650B8000217F7 /* MSHTTPResponseSerializer.m */; };
 		18B3EA5D1FEA4FFB00AAA921 /* MSFDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3EA5C1FEA4FFB00AAA921 /* MSFDownloadManager.m */; };
 		18B3EA601FEA5D3B00AAA921 /* NSString+MSFStringConvience.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3EA5F1FEA5D3B00AAA921 /* NSString+MSFStringConvience.m */; };
 		18B3EA631FEA602E00AAA921 /* MSFDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 18B3EA621FEA602E00AAA921 /* MSFDownloadOperation.m */; };
@@ -35,13 +35,14 @@
 		1807C06320F4300400F51AAF /* MSSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSSecurityPolicy.m; sourceTree = "<group>"; };
 		1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLRequestSerialization.h; sourceTree = "<group>"; };
 		1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLRequestSerialization.m; sourceTree = "<group>"; };
-		1807C06820F4310100F51AAF /* MSURLResponseSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLResponseSerialization.h; sourceTree = "<group>"; };
-		1807C06920F4310100F51AAF /* MSURLResponseSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLResponseSerialization.m; sourceTree = "<group>"; };
 		181745551FE901E5002E3BD3 /* MSFTimerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSFTimerManager.h; sourceTree = "<group>"; };
 		181745561FE901E5002E3BD3 /* MSFTimerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSFTimerManager.m; sourceTree = "<group>"; };
 		1836B4543BF5E9B6F2067FCB /* Pods-MSItemViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSItemViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSItemViewController/Pods-MSItemViewController.debug.xcconfig"; sourceTree = "<group>"; };
 		1851EF541FEB618300D93E63 /* MSFDownloadModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSFDownloadModel.h; sourceTree = "<group>"; };
 		1851EF551FEB618300D93E63 /* MSFDownloadModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSFDownloadModel.m; sourceTree = "<group>"; };
+		187B495720F64FDB000217F7 /* MSURLResponseSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLResponseSerialization.h; sourceTree = "<group>"; };
+		187B495920F650B8000217F7 /* MSHTTPResponseSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSHTTPResponseSerializer.h; sourceTree = "<group>"; };
+		187B495A20F650B8000217F7 /* MSHTTPResponseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSHTTPResponseSerializer.m; sourceTree = "<group>"; };
 		18B3EA5B1FEA4FFB00AAA921 /* MSFDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSFDownloadManager.h; sourceTree = "<group>"; };
 		18B3EA5C1FEA4FFB00AAA921 /* MSFDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSFDownloadManager.m; sourceTree = "<group>"; };
 		18B3EA5E1FEA5D3B00AAA921 /* NSString+MSFStringConvience.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MSFStringConvience.h"; sourceTree = "<group>"; };
@@ -89,14 +90,23 @@
 				1807C06020F42E4300F51AAF /* MSURLSessionManager.m */,
 				F53C20E420F4DCD4002BED1F /* MSURLSessionManagerTaskModel.h */,
 				F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */,
+				187B495820F6507A000217F7 /* MSURLResponseSerialization */,
 				1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */,
 				1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */,
-				1807C06820F4310100F51AAF /* MSURLResponseSerialization.h */,
-				1807C06920F4310100F51AAF /* MSURLResponseSerialization.m */,
 				1807C06220F4300400F51AAF /* MSSecurityPolicy.h */,
 				1807C06320F4300400F51AAF /* MSSecurityPolicy.m */,
 			);
 			path = MSNetWork;
+			sourceTree = "<group>";
+		};
+		187B495820F6507A000217F7 /* MSURLResponseSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				187B495720F64FDB000217F7 /* MSURLResponseSerialization.h */,
+				187B495920F650B8000217F7 /* MSHTTPResponseSerializer.h */,
+				187B495A20F650B8000217F7 /* MSHTTPResponseSerializer.m */,
+			);
+			path = MSURLResponseSerialization;
 			sourceTree = "<group>";
 		};
 		18B3EA5A1FEA4FCF00AAA921 /* MSFDownloadManager */ = {
@@ -286,11 +296,11 @@
 				1807C06720F430E400F51AAF /* MSURLRequestSerialization.m in Sources */,
 				18CCFE5D1F20802600AC3443 /* ViewController.m in Sources */,
 				18B3EA5D1FEA4FFB00AAA921 /* MSFDownloadManager.m in Sources */,
+				187B495B20F650B8000217F7 /* MSHTTPResponseSerializer.m in Sources */,
 				18B994DE1FE7B19500C79A80 /* DownloadCell.m in Sources */,
 				18CCFE5A1F20802600AC3443 /* AppDelegate.m in Sources */,
 				F53C20E620F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m in Sources */,
 				18B994DA1FE7B0F400C79A80 /* MSTestViewController.m in Sources */,
-				1807C06A20F4310100F51AAF /* MSURLResponseSerialization.m in Sources */,
 				1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */,
 				18B3EA631FEA602E00AAA921 /* MSFDownloadOperation.m in Sources */,
 				181745571FE901E5002E3BD3 /* MSFTimerManager.m in Sources */,

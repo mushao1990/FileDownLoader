@@ -248,6 +248,7 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
         self.lock = [[NSLock alloc] init];
         self.lock.name = @"com.mushao.MSNetWorkLock";
         
+        self.responseSerialization = [MSJSONResponseSerializer serializer];
         // 获取该会话所有正在执行的任务
         [self.session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks, NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks, NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {
             for (NSURLSessionDataTask * dataTask in dataTasks) {
@@ -263,20 +264,6 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
         _securityPolicy = [MSSecurityPolicy defaultPolicy];
     }
     return _securityPolicy;
-}
-
-- (MSURLResponseSerialization *)responseSerialization {
-    if (!_responseSerialization) {
-        _responseSerialization = [MSURLResponseSerialization defaultResponseSerialization];
-    }
-    return _responseSerialization;
-}
-
-- (MSURLRequestSerialization *)requestSerialization {
-    if (!_requestSerialization) {
-        _requestSerialization = [MSURLRequestSerialization defaultRequestSerialization];
-    }
-    return _requestSerialization;
 }
 
 - (NSMutableDictionary *)taskModelsDictionary {

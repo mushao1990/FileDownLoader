@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MSURLSessionManager.h"
 #import "MSNetWork.h"
+#import "MSURLResponseSerialization.h"
 /**
  任务模型
  */
