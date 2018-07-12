@@ -2,17 +2,16 @@
 //  MSURLRequestSerialization.h
 //  MSItemViewController
 //
-//  Created by apple on 2018/7/10.
+//  Created by 慕少锋 on 2018/7/12.
 //  Copyright © 2018年 Zhangmen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-/**
- 请求解析类（主要是对参数做处理工作）
- */
-@interface MSURLRequestSerialization : NSObject
+@protocol MSURLRequestSerialization <NSObject, NSSecureCoding, NSCopying>
 
-+ (MSURLRequestSerialization *)defaultRequestSerialization;
+- (nullable NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
+                                        withParameters:(nullable id)parameters
+                                                 error:(NSError * _Nullable __autoreleasing *)error NS_SWIFT_NOTHROW;
 
 @end

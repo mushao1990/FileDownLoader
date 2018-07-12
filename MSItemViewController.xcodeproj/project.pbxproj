@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06020F42E4300F51AAF /* MSURLSessionManager.m */; };
 		1807C06420F4300400F51AAF /* MSSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06320F4300400F51AAF /* MSSecurityPolicy.m */; };
-		1807C06720F430E400F51AAF /* MSURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */; };
 		181745571FE901E5002E3BD3 /* MSFTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 181745561FE901E5002E3BD3 /* MSFTimerManager.m */; };
 		1851EF561FEB618300D93E63 /* MSFDownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1851EF551FEB618300D93E63 /* MSFDownloadModel.m */; };
 		187B495B20F650B8000217F7 /* MSHTTPResponseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 187B495A20F650B8000217F7 /* MSHTTPResponseSerializer.m */; };
@@ -26,6 +25,8 @@
 		18CCFE651F20802600AC3443 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18CCFE631F20802600AC3443 /* LaunchScreen.storyboard */; };
 		91D770548EC84DAF2D2B72B8 /* libPods-MSItemViewController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CFD81EE6FF8F5951A92B377C /* libPods-MSItemViewController.a */; };
 		F53C20E620F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */; };
+		F5E80D2820F7872400D32931 /* MSHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E80D2720F7872400D32931 /* MSHTTPSessionManager.m */; };
+		F5E80D2C20F7892200D32931 /* MSURLRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E80D2B20F7892200D32931 /* MSURLRequestSerializer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,8 +34,6 @@
 		1807C06020F42E4300F51AAF /* MSURLSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManager.m; sourceTree = "<group>"; };
 		1807C06220F4300400F51AAF /* MSSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSSecurityPolicy.h; sourceTree = "<group>"; };
 		1807C06320F4300400F51AAF /* MSSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSSecurityPolicy.m; sourceTree = "<group>"; };
-		1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLRequestSerialization.h; sourceTree = "<group>"; };
-		1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLRequestSerialization.m; sourceTree = "<group>"; };
 		181745551FE901E5002E3BD3 /* MSFTimerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSFTimerManager.h; sourceTree = "<group>"; };
 		181745561FE901E5002E3BD3 /* MSFTimerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSFTimerManager.m; sourceTree = "<group>"; };
 		1836B4543BF5E9B6F2067FCB /* Pods-MSItemViewController.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MSItemViewController.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MSItemViewController/Pods-MSItemViewController.debug.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +67,11 @@
 		F53C20E420F4DCD4002BED1F /* MSURLSessionManagerTaskModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLSessionManagerTaskModel.h; sourceTree = "<group>"; };
 		F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLSessionManagerTaskModel.m; sourceTree = "<group>"; };
 		F53C20E720F4E14A002BED1F /* MSNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSNetWork.h; sourceTree = "<group>"; };
+		F5E80D2620F7872400D32931 /* MSHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSHTTPSessionManager.h; sourceTree = "<group>"; };
+		F5E80D2720F7872400D32931 /* MSHTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSHTTPSessionManager.m; sourceTree = "<group>"; };
+		F5E80D2920F7885500D32931 /* MSURLRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLRequestSerialization.h; sourceTree = "<group>"; };
+		F5E80D2A20F7892200D32931 /* MSURLRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MSURLRequestSerializer.h; sourceTree = "<group>"; };
+		F5E80D2B20F7892200D32931 /* MSURLRequestSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MSURLRequestSerializer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +90,16 @@
 			isa = PBXGroup;
 			children = (
 				F53C20E720F4E14A002BED1F /* MSNetWork.h */,
+				F5E80D2620F7872400D32931 /* MSHTTPSessionManager.h */,
+				F5E80D2720F7872400D32931 /* MSHTTPSessionManager.m */,
 				1807C05F20F42E4300F51AAF /* MSURLSessionManager.h */,
 				1807C06020F42E4300F51AAF /* MSURLSessionManager.m */,
 				F53C20E420F4DCD4002BED1F /* MSURLSessionManagerTaskModel.h */,
 				F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */,
+				F5E80D2920F7885500D32931 /* MSURLRequestSerialization.h */,
+				F5E80D2A20F7892200D32931 /* MSURLRequestSerializer.h */,
+				F5E80D2B20F7892200D32931 /* MSURLRequestSerializer.m */,
 				187B495820F6507A000217F7 /* MSURLResponseSerialization */,
-				1807C06520F430E400F51AAF /* MSURLRequestSerialization.h */,
-				1807C06620F430E400F51AAF /* MSURLRequestSerialization.m */,
 				1807C06220F4300400F51AAF /* MSSecurityPolicy.h */,
 				1807C06320F4300400F51AAF /* MSSecurityPolicy.m */,
 			);
@@ -292,8 +299,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E80D2820F7872400D32931 /* MSHTTPSessionManager.m in Sources */,
 				1851EF561FEB618300D93E63 /* MSFDownloadModel.m in Sources */,
-				1807C06720F430E400F51AAF /* MSURLRequestSerialization.m in Sources */,
 				18CCFE5D1F20802600AC3443 /* ViewController.m in Sources */,
 				18B3EA5D1FEA4FFB00AAA921 /* MSFDownloadManager.m in Sources */,
 				187B495B20F650B8000217F7 /* MSHTTPResponseSerializer.m in Sources */,
@@ -301,6 +308,7 @@
 				18CCFE5A1F20802600AC3443 /* AppDelegate.m in Sources */,
 				F53C20E620F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m in Sources */,
 				18B994DA1FE7B0F400C79A80 /* MSTestViewController.m in Sources */,
+				F5E80D2C20F7892200D32931 /* MSURLRequestSerializer.m in Sources */,
 				1807C06120F42E4300F51AAF /* MSURLSessionManager.m in Sources */,
 				18B3EA631FEA602E00AAA921 /* MSFDownloadOperation.m in Sources */,
 				181745571FE901E5002E3BD3 /* MSFTimerManager.m in Sources */,
