@@ -145,39 +145,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return data;
 }
 
-#pragma mark - NSSecureCoding
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [self init];
-    if (!self) {
-        return nil;
-    }
-    
-    self.acceptableStatusCodes = [decoder decodeObjectOfClass:[NSIndexSet class] forKey:NSStringFromSelector(@selector(acceptableStatusCodes))];
-    self.acceptableContentTypes = [decoder decodeObjectOfClass:[NSIndexSet class] forKey:NSStringFromSelector(@selector(acceptableContentTypes))];
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:self.acceptableStatusCodes forKey:NSStringFromSelector(@selector(acceptableStatusCodes))];
-    [coder encodeObject:self.acceptableContentTypes forKey:NSStringFromSelector(@selector(acceptableContentTypes))];
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSHTTPResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
-    serializer.acceptableStatusCodes = [self.acceptableStatusCodes copyWithZone:zone];
-    serializer.acceptableContentTypes = [self.acceptableContentTypes copyWithZone:zone];
-    
-    return serializer;
-}
-
 @end
 
 @implementation MSJSONResponseSerializer
@@ -236,37 +203,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     }
     
     return responseObject;
-}
-
-#pragma mark - NSSecureCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) {
-        return nil;
-    }
-    
-    self.readingOptions = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(readingOptions))] unsignedIntegerValue];
-    self.removesKeysWithNullValues = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(removesKeysWithNullValues))] boolValue];
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [super encodeWithCoder:coder];
-    
-    [coder encodeObject:@(self.readingOptions) forKey:NSStringFromSelector(@selector(readingOptions))];
-    [coder encodeObject:@(self.removesKeysWithNullValues) forKey:NSStringFromSelector(@selector(removesKeysWithNullValues))];
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSJSONResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
-    serializer.readingOptions = self.readingOptions;
-    serializer.removesKeysWithNullValues = self.removesKeysWithNullValues;
-    
-    return serializer;
 }
 
 @end
@@ -357,34 +293,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     return document;
 }
 
-#pragma mark - NSSecureCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) {
-        return nil;
-    }
-    
-    self.options = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(options))] unsignedIntegerValue];
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [super encodeWithCoder:coder];
-    
-    [coder encodeObject:@(self.options) forKey:NSStringFromSelector(@selector(options))];
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSXMLDocumentResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
-    serializer.options = self.options;
-    
-    return serializer;
-}
-
 @end
 
 #endif
@@ -442,37 +350,6 @@ static id AFJSONObjectByRemovingKeysWithNullValues(id JSONObject, NSJSONReadingO
     }
     
     return responseObject;
-}
-
-#pragma mark - NSSecureCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) {
-        return nil;
-    }
-    
-    self.format = (NSPropertyListFormat)[[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(format))] unsignedIntegerValue];
-    self.readOptions = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(readOptions))] unsignedIntegerValue];
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [super encodeWithCoder:coder];
-    
-    [coder encodeObject:@(self.format) forKey:NSStringFromSelector(@selector(format))];
-    [coder encodeObject:@(self.readOptions) forKey:NSStringFromSelector(@selector(readOptions))];
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSPropertyListResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
-    serializer.format = self.format;
-    serializer.readOptions = self.readOptions;
-    
-    return serializer;
 }
 
 @end
@@ -658,50 +535,6 @@ static UIImage * MSInflatedImageFromResponseWithDataAtScale(NSHTTPURLResponse *r
 #endif
     
     return nil;
-}
-
-#pragma mark - NSSecureCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) {
-        return nil;
-    }
-    
-#if TARGET_OS_IOS  || TARGET_OS_TV || TARGET_OS_WATCH
-    NSNumber *imageScale = [decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(imageScale))];
-#if CGFLOAT_IS_DOUBLE
-    self.imageScale = [imageScale doubleValue];
-#else
-    self.imageScale = [imageScale floatValue];
-#endif
-    
-    self.automaticallyInflatesResponseImage = [decoder decodeBoolForKey:NSStringFromSelector(@selector(automaticallyInflatesResponseImage))];
-#endif
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [super encodeWithCoder:coder];
-    
-#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
-    [coder encodeObject:@(self.imageScale) forKey:NSStringFromSelector(@selector(imageScale))];
-    [coder encodeBool:self.automaticallyInflatesResponseImage forKey:NSStringFromSelector(@selector(automaticallyInflatesResponseImage))];
-#endif
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSImageResponseSerializer *serializer = [[[self class] allocWithZone:zone] init];
-    
-#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
-    serializer.imageScale = self.imageScale;
-    serializer.automaticallyInflatesResponseImage = self.automaticallyInflatesResponseImage;
-#endif
-    
-    return serializer;
 }
 
 @end

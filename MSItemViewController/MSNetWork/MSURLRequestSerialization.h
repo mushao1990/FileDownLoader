@@ -8,10 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol MSURLRequestSerialization <NSObject, NSSecureCoding, NSCopying>
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol MSURLRequestSerialization <NSObject>
 
 - (nullable NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                         withParameters:(nullable id)parameters
                                                  error:(NSError * _Nullable __autoreleasing *)error NS_SWIFT_NOTHROW;
 
 @end
+
+NS_ASSUME_NONNULL_END

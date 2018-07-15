@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MSURLRequestSerialization.h"
-#import "MSURLRequestSerializer.h"
+NS_ASSUME_NONNULL_BEGIN
 
 @interface MSURLRequestSerializer : NSObject<MSURLRequestSerialization>
 
@@ -69,3 +69,5 @@
                         writeOptions:(NSPropertyListWriteOptions)writeOptions;
 
 @end
+
+NS_ASSUME_NONNULL_END

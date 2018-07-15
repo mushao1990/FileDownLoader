@@ -8,8 +8,9 @@
 
 #import "MSURLSessionManager.h"
 #import "MSURLRequestSerialization.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface MSHTTPSessionManager : MSURLSessionManager<NSSecureCoding,NSCopying>
+@interface MSHTTPSessionManager : MSURLSessionManager
 
 @property (nonatomic, strong) NSURL *baseURL;
 
@@ -31,3 +32,5 @@
                                 failure:(nullable void (^)(NSURLSessionDataTask * _Nullable task, NSError *error))failure;
 
 @end
+
+NS_ASSUME_NONNULL_END

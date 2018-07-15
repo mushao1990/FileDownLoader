@@ -1,5 +1,6 @@
 
 #import <UIKit/UIKit.h>
+#import "MSURLRequestSerializer.h"
 
 #if TARGET_OS_IOS || TARGET_OS_WATCH || TARGET_OS_TV
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -739,34 +740,6 @@ typedef enum {
     return mutableRequest;
 }
 
-#pragma mark - NSSecureCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) {
-        return nil;
-    }
-    
-    self.writingOptions = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(writingOptions))] unsignedIntegerValue];
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [super encodeWithCoder:coder];
-    
-    [coder encodeInteger:self.writingOptions forKey:NSStringFromSelector(@selector(writingOptions))];
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSJSONRequestSerializer *serializer = [super copyWithZone:zone];
-    serializer.writingOptions = self.writingOptions;
-    
-    return serializer;
-}
-
 @end
 
 #pragma mark -
@@ -816,37 +789,6 @@ typedef enum {
     }
     
     return mutableRequest;
-}
-
-#pragma mark - NSSecureCoding
-
-- (instancetype)initWithCoder:(NSCoder *)decoder {
-    self = [super initWithCoder:decoder];
-    if (!self) {
-        return nil;
-    }
-    
-    self.format = (NSPropertyListFormat)[[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(format))] unsignedIntegerValue];
-    self.writeOptions = [[decoder decodeObjectOfClass:[NSNumber class] forKey:NSStringFromSelector(@selector(writeOptions))] unsignedIntegerValue];
-    
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)coder {
-    [super encodeWithCoder:coder];
-    
-    [coder encodeInteger:self.format forKey:NSStringFromSelector(@selector(format))];
-    [coder encodeObject:@(self.writeOptions) forKey:NSStringFromSelector(@selector(writeOptions))];
-}
-
-#pragma mark - NSCopying
-
-- (instancetype)copyWithZone:(NSZone *)zone {
-    MSPropertyListRequestSerializer *serializer = [super copyWithZone:zone];
-    serializer.format = self.format;
-    serializer.writeOptions = self.writeOptions;
-    
-    return serializer;
 }
 
 @end

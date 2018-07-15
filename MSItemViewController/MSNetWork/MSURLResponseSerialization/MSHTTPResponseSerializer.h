@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "MSURLResponseSerialization.h"
+NS_ASSUME_NONNULL_BEGIN
 
-@interface MSHTTPResponseSerializer : NSObject<MSURLResponseSerialization,NSSecureCoding, NSCopying>
+@interface MSHTTPResponseSerializer : NSObject<MSURLResponseSerialization>
 
 - (instancetype)init;
 
@@ -75,3 +76,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

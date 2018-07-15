@@ -11,7 +11,7 @@
 #import "MSNetWork.h"
 #import "MSURLResponseSerialization.h"
 #import "MSHTTPResponseSerializer.h"
-
+NS_ASSUME_NONNULL_BEGIN
 /**
  用来管理NSURLSession
  目前不支持上传和下载
@@ -34,3 +34,4 @@
                             completionHandler:(MSURLSessionTaskCompletionBlock)completionHandler;
 
 @end
+NS_ASSUME_NONNULL_END
