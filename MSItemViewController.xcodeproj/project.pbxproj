@@ -96,14 +96,22 @@
 				1807C06020F42E4300F51AAF /* MSURLSessionManager.m */,
 				F53C20E420F4DCD4002BED1F /* MSURLSessionManagerTaskModel.h */,
 				F53C20E520F4DCD4002BED1F /* MSURLSessionManagerTaskModel.m */,
-				F5E80D2920F7885500D32931 /* MSURLRequestSerialization.h */,
-				F5E80D2A20F7892200D32931 /* MSURLRequestSerializer.h */,
-				F5E80D2B20F7892200D32931 /* MSURLRequestSerializer.m */,
+				1855098120FB50DF00249F9A /* MSURLRequestSerialization */,
 				187B495820F6507A000217F7 /* MSURLResponseSerialization */,
 				1807C06220F4300400F51AAF /* MSSecurityPolicy.h */,
 				1807C06320F4300400F51AAF /* MSSecurityPolicy.m */,
 			);
 			path = MSNetWork;
+			sourceTree = "<group>";
+		};
+		1855098120FB50DF00249F9A /* MSURLRequestSerialization */ = {
+			isa = PBXGroup;
+			children = (
+				F5E80D2920F7885500D32931 /* MSURLRequestSerialization.h */,
+				F5E80D2A20F7892200D32931 /* MSURLRequestSerializer.h */,
+				F5E80D2B20F7892200D32931 /* MSURLRequestSerializer.m */,
+			);
+			path = MSURLRequestSerialization;
 			sourceTree = "<group>";
 		};
 		187B495820F6507A000217F7 /* MSURLResponseSerialization */ = {

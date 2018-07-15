@@ -8,13 +8,15 @@
 
 #import "MSURLSessionManager.h"
 #import "MSURLRequestSerialization.h"
+#import "MSURLRequestSerializer.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MSHTTPSessionManager : MSURLSessionManager
 
 @property (nonatomic, strong) NSURL *baseURL;
 
-@property (nonatomic, strong) id <MSURLRequestSerialization>  requestSerializer;
+@property (nonatomic, strong) MSURLRequestSerializer <MSURLRequestSerialization>  * requestSerializer;
 
 - (instancetype)initWithBaseURL:(nullable NSURL *)url
            sessionConfiguration:(nullable NSURLSessionConfiguration *)configuration;

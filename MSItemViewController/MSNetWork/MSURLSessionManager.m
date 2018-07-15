@@ -105,17 +105,16 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
     NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
     __block NSURLCredential *credential = nil;
     
-//    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-//        // [self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]
-//        if (1) {
-//            disposition = NSURLSessionAuthChallengeUseCredential;
-//            credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-//        } else {
-//            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
-//        }
-//    } else {
+    if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+        if ([self.securityPolicy evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:challenge.protectionSpace.host]) {
+            disposition = NSURLSessionAuthChallengeUseCredential;
+            credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+        } else {
+            disposition = NSURLSessionAuthChallengeCancelAuthenticationChallenge;
+        }
+    } else {
         disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-//    }
+    }
     
     if (completionHandler) {
         completionHandler(disposition, credential);
@@ -247,7 +246,7 @@ didBecomeDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
         
         self.lock = [[NSLock alloc] init];
         self.lock.name = @"com.mushao.MSNetWorkLock";
-        
+    
         self.responseSerialization = [MSJSONResponseSerializer serializer];
         // 获取该会话所有正在执行的任务
         [self.session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks, NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks, NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {

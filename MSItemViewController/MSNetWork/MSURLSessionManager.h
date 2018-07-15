@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface MSURLSessionManager : NSObject
 
-@property (nonatomic, strong) id <MSURLResponseSerialization>    responseSerialization;// 响应解析器
+@property (nonatomic, strong) MSHTTPResponseSerializer <MSURLResponseSerialization>   * responseSerialization;// 响应解析器
 
 @property (nonatomic, strong) MSSecurityPolicy    * securityPolicy;// 安全策略
 

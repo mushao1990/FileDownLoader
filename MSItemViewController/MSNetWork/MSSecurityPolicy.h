@@ -8,11 +8,38 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- 关于证书类
- */
+#import <Foundation/Foundation.h>
+#import <Security/Security.h>
+
+typedef NS_ENUM(NSUInteger, MSSSLPinningMode) {
+    MSSSLPinningModeNone,
+    MSSSLPinningModePublicKey,
+    MSSSLPinningModeCertificate,
+};
+
+NS_ASSUME_NONNULL_BEGIN
+
 @interface MSSecurityPolicy : NSObject
 
-+ (MSSecurityPolicy *)defaultPolicy;
+@property (readonly, nonatomic, assign) MSSSLPinningMode SSLPinningMode;
+
+@property (nonatomic, strong, nullable) NSSet <NSData *> *pinnedCertificates;
+
+@property (nonatomic, assign) BOOL allowInvalidCertificates;
+
+@property (nonatomic, assign) BOOL validatesDomainName;
+
++ (NSSet <NSData *> *)certificatesInBundle:(NSBundle *)bundle;
+
++ (instancetype)defaultPolicy;
+
++ (instancetype)policyWithPinningMode:(MSSSLPinningMode)pinningMode;
+
++ (instancetype)policyWithPinningMode:(MSSSLPinningMode)pinningMode withPinnedCertificates:(NSSet <NSData *> *)pinnedCertificates;
+
+- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust
+                  forDomain:(nullable NSString *)domain;
 
 @end
+
+NS_ASSUME_NONNULL_END
